@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 
 # root check
 if [ $(id -u) -eq 0 ]
@@ -35,6 +37,7 @@ cd "$CONFIG_DIR/tmp/install/"
 curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "install.zip"
 unzip "install.zip" -d .
 rm "install.zip"
+cd "./thor-gamescope-kde-main/"
 
 # everything that needs root
 SUDOERS_DIR="./etc/sudoers.d/"
@@ -71,13 +74,13 @@ if [ ! -d "$HOME/.config/inputplumber/" ] || [ ! -d "$HOME/.config/inputplumber/
 		mkdir -p "$HOME/.config/inptplumber/profiles/"
 fi
 
-chmod +x "local/bin/"*
-cp "local/bin/"* "$HOME/.local/bin"
-cp "local/share/applications/"* "$HOME/.local/share/applications"
+chmod +x "./local/bin/"*
+cp "./local/bin/"* "$HOME/.local/bin"
+cp "./local/share/applications/"* "$HOME/.local/share/applications"
 
-cp "config/inputplumber/profiles/"* "$HOME/.config/inputplumber/profiles/"
-cp "config/plasma-gamescope-thor/"* "$HOME/.config/plasma-gamescope-thor/" -r
-cp "config/systemd/user/"* "$HOME/.config/systemd/user/" -r
+cp "./config/inputplumber/profiles/"* "$HOME/.config/inputplumber/profiles/"
+cp "./config/plasma-gamescope-thor/"* "$HOME/.config/plasma-gamescope-thor/" -r
+cp "./config/systemd/user/"* "$HOME/.config/systemd/user/" -r
 
 cd "$CURRENT_DIR"
 rm -r "$CONFIG_DIR/tmp/install"
