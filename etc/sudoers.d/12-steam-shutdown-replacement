@@ -1,0 +1,2 @@
+deck ALL=(root) NOPASSWD: /usr/bin/mount --bind /home/deck/.local/bin/steam-shutdown /usr/bin/steamos-session-select
+deck ALL=(root) NOPASSWD: /usr/bin/umount /usr/bin/steamos-session-select

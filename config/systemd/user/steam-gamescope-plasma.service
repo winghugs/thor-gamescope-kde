@@ -1,0 +1,15 @@
+[Unit]
+Description=Dynamic output configuration for Wayland compositors
+ConditionEnvironment=XDG_CURRENT_DESKTOP=KDE
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/start-gamescope-plasma
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+

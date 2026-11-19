@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=melondslauncher
-GenericName=melonDS Launcher
-Comment=Launches melonDS in KDE session from gamemode
-Exec=$HOME/dualmelonds
-Categories=Games;
-

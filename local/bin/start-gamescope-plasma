@@ -1,14 +1,19 @@
 #!/bin/bash
 
+if [[ ! $(ps -e | grep -E -i "startplasmamobi") ]]; then
+	echo "ERROR: plasma-mobile not running. exiting."
+	exit 0
+fi
+
 CONFIG_DIR="$HOME/.config/gamescope-plasma-thor/"
 
 # init folder if it doesn't exist
-if [ ! -d "$CONFIG_DIR"]; then
+if [ ! -d "$CONFIG_DIR" ]; then
     mkdir "$CONFIG_DIR"
 fi
 
 # save existing rules if there are any
-if [ -f "$HOME/.config/kwinrulesrc"]; then 
+if [ -f "$HOME/.config/kwinrulesrc" ]; then 
     cp "$HOME/.config/kwinrulesrc" "$CONFIG_DIR/kwinrulesrc_backup"
 else {
     touch "$HOME/.config/kwinrulesrc"
@@ -160,11 +165,23 @@ newrule_end
 
 qdbus6 org.kde.KWin /KWin reconfigure
 
-# init gamescope with a custom wayland display
+# file to refer to for other systems to check if this program is active
+touch $CONFIG_DIR/.active
+
+# on installer, sudoers files added exceptions for these mounts and unmounts
+sudo /usr/bin/mount --bind /home/deck/.local/bin/steam-shutdown /usr/bin/steamos-session-select
+
+# explicitly adding ~/.local/bin to PATH so that steam picks up the DS programs
+export PATH="$HOME/.local/bin:$PATH"
+
+# init gamescope with an explicit wayland display for window management
 GAMESCOPE_WAYLAND_DISPLAY=steam gamescope -W 1920 -w 1920 -H 1080 -h 1080 -r 120 -ef --force-grab-cursor --mangoapp -- steam -gamepadui -steamos3 -steampal -steamdeck &
 GAMESCOPE_PID=$!
 
 wait $GAMESCOPE_PID
 
-# restore previous rules
-cp $PREVDOC $RULESRC
+# clean up
+rm "$CONFIG_DIR/.active"
+sudo /usr/bin/umount /usr/bin/steamos-session-select
+cp "$PREVDOC" "$RULESRC"
+exit 0

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=ANIMAL WELL
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/813230
-Icon=steam_icon_813230
-Terminal=false
-Type=Application
-Categories=Game;
