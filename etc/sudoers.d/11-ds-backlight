@@ -1,0 +1,2 @@
+deck ALL=(root) NOPASSWD: /usr/bin/tee /sys/class/backlight/ae94000.dsi.0/brightness
+deck ALL=(root) NOPASSWD: /usr/bin/tee /sys/class/backlight/ae96000.dsi.0/brightness

@@ -1,0 +1,31 @@
+#!/bin/bash  
+
+# create a dummy window for gamescope
+/usr/bin/xmessage -print "game running" -buttons "" &  
+DUMMY_PID=$!  
+  
+# switch to working with kde wayland
+export WAYLAND_DISPLAY=wayland-1  
+export DISPLAY=:0
+
+# get screen state
+BOT_SCREEN_ON=""
+BOT_SCREEN_STATE=$(screen-doctor -o | grep DSI-1 -A1 | grep bled)
+
+if [ "$BOT_SCREEN_STATE" == "enabled"]; then
+    BOT_SCREEN_ON=true
+else {
+    BOT_SCREEN_ON=false
+    kscreen-doctor output.DSI-1.enable
+}
+fi
+
+$HOME/Applications/azahar.AppImage "$@" &  
+GAME_PID=$!  
+  
+wait $GAME_PID
+kill $DUMMY_PID
+if [ ! BOT_SCREEN ON ]; then
+    kscreen-doctor output.DSI-1.disable
+fi
+exit 0
