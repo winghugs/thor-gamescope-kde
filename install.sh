@@ -37,7 +37,7 @@ cd "$CONFIG_DIR/tmp/install/"
 curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "install.zip"
 unzip "install.zip" -d .
 rm "install.zip"
-cd "./thor-gamescope-kde-main/"
+cd "$CONFIG_DIR/tmp/install/thor-gamescope-kde-main/"
 
 # everything that needs root
 SUDOERS_DIR="./etc/sudoers.d/"
