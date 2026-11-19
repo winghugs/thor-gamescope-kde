@@ -50,6 +50,25 @@ if [ ! -d "$HOME/.config/inputplumber/" ] || [ ! -d "$HOME/.config/inputplumber/
 		mkdir -p "$HOME/.config/inputplumber/profiles/"
 fi
 
+copy_loop () {
+	DIR=$1
+	DEST=$2
+	LIST=$(ls $DIR)
+	for file in $LIST; do {
+		cp "$DIR/$file" "$DEST/$file" -r
+	}
+	done
+}
+
+plusx_loop () {
+	DIR=$1
+	LIST=$(ls $DIR)
+	for file in $LIST; do {
+		chmod +x "$DIR/$file"
+	}
+	done
+}
+
 # download source
 cd "$CONFIG_DIR/tmp/install/"
 curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "./install.zip"
@@ -73,14 +92,12 @@ sudo cp "$INSTALL_DIR/etc/inputplumber/capability_maps.d/"* "/etc/inputplumber/c
 
 
 # no more root needed
-
-chmod +x "$INSTALL_DIR/local/bin/"*
-cp "$INSTALL_DIR/local/bin/"* "$HOME/.local/bin"
-cp "$INSTALL_DIR/local/share/applications/"* "$HOME/.local/share/applications"
-
-cp "$INSTALL_DIR/config/inputplumber/profiles/"* "$HOME/.config/inputplumber/profiles/"
-cp "$INSTALL_DIR/config/plasma-gamescope-thor/"* "$HOME/.config/plasma-gamescope-thor/" -r
-cp "$INSTALL_DI/config/systemd/user/"* "$HOME/.config/systemd/user/" -r
+plusx_loop "$INSTALL_DIR/local/bin/"
+copy_loop "$INSTALL_DIR/local/bin" "$HOME/.local/bin"
+copy_loop "$INSTALL_DIR/local/share/applications" "$HOME/.local/share/applications"
+copy_loop "$INSTALL_DIR/config/inputplumber/profiles/" "$HOME/.config/inputplumber/profiles/"
+copy_loop "$INSTALL_DIR/config/plasma-gamescope-thor/" "$HOME/.config/plasma-gamescope-thor/"
+copy_loop "$INSTALL_DI/config/systemd/user/" "$HOME/.config/systemd/user/"
 
 cd "$CURRENT_DIR"
 rm -r "$CONFIG_DIR/tmp/install"
