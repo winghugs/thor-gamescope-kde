@@ -21,9 +21,12 @@ echo
 CURRENT_DIR=$(pwd)
 CONFIG_DIR="$HOME/.config/gamescope-plasma-thor/"
 INPL_DIR="$HOME/inputplumber/"
+INSTALL_DIR="$CONFIG_DIR/tmp/install/thor-gamescope-kde-main"
+SUDOERS_DIR="$INSTALL_DIR/etc/sudoers.d/"
+SUDOERS_SYSTEM="/etc/sudoers.d/"
 
 # folder init
-if [ ! -d "$CONFIG_DIR/tmp/install" ]; then
+if [ ! -d "$CONFIG_DIR" ] || [ ! -d "$CONFIG_DIR/tmp/install" ]; then
 		mkdir -p "$CONFIG_DIR/tmp/install"
 fi
 
@@ -32,17 +35,12 @@ if [ ! -d "$INPL_DIR/profiles" ]; then
 fi
 
 # download source
-cd "$CONFIG_DIR/tmp/install/"
-
-curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "install.zip"
-unzip "install.zip" -d .
-rm "install.zip"
-cd "$CONFIG_DIR/tmp/install/thor-gamescope-kde-main/"
+curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "$CONFIG_DIR/tmp/install/install.zip"
+unzip "install.zip" -d "$CONFIG_DIR/tmp/install/"
+rm "$CONFIG_DIR/tmp/install/install.zip"
 
 # everything that needs root
-SUDOERS_DIR="./etc/sudoers.d/"
 SUDOERS_FILES=$(ls $SUDOERS_DIR)
-SUDOERS_SYSTEM="/etc/sudoers.d/"
 
 for file in $SUDOERS_FILES; do {
 		sudo cp "$SUDOERS_DIR/$file" "$SUDOERS_SYSTEM/$file"
@@ -53,7 +51,7 @@ done
 # the default capability map for the AYN Button has it set to quickaccess instead of quickaccess2.
 # this change is permanant, but shouldn't effect base user experience.
 sudo mkdir -p "/etc/inputplumber/capability_maps.d/"
-sudo cp "./etc/inputplumber/capability_maps.d/"* "/etc/inputplumber/capability_maps.d/"
+sudo cp "$INSTALL_DIR/etc/inputplumber/capability_maps.d/"* "/etc/inputplumber/capability_maps.d/"
 
 
 
@@ -74,13 +72,13 @@ if [ ! -d "$HOME/.config/inputplumber/" ] || [ ! -d "$HOME/.config/inputplumber/
 		mkdir -p "$HOME/.config/inptplumber/profiles/"
 fi
 
-chmod +x "./local/bin/"*
-cp "./local/bin/"* "$HOME/.local/bin"
-cp "./local/share/applications/"* "$HOME/.local/share/applications"
+chmod +x "$INSTALL_DIR/local/bin/"*
+cp "$INSTALL_DIR/local/bin/"* "$HOME/.local/bin"
+cp "$INSTALL_DIR/local/share/applications/"* "$HOME/.local/share/applications"
 
-cp "./config/inputplumber/profiles/"* "$HOME/.config/inputplumber/profiles/"
-cp "./config/plasma-gamescope-thor/"* "$HOME/.config/plasma-gamescope-thor/" -r
-cp "./config/systemd/user/"* "$HOME/.config/systemd/user/" -r
+cp "$INSTALL_DIR/config/inputplumber/profiles/"* "$HOME/.config/inputplumber/profiles/"
+cp "$INSTALL_DIR/config/plasma-gamescope-thor/"* "$HOME/.config/plasma-gamescope-thor/" -r
+cp "$INSTALL_DI/config/systemd/user/"* "$HOME/.config/systemd/user/" -r
 
 cd "$CURRENT_DIR"
 rm -r "$CONFIG_DIR/tmp/install"
