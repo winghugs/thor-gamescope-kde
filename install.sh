@@ -26,12 +26,28 @@ SUDOERS_DIR="$INSTALL_DIR/etc/sudoers.d/"
 SUDOERS_SYSTEM="/etc/sudoers.d/"
 
 # folder init
-if [ ! -d "$CONFIG_DIR" ] || [ ! -d "$CONFIG_DIR/tmp/install" ]; then
+if [ ! -d "$CONFIG_DIR" ] || [ ! -d "$CONFIG_DIR/tmp/install/" ]; then
 		mkdir -p "$CONFIG_DIR/tmp/install"
 fi
 
-if [ ! -d "$INPL_DIR/profiles" ]; then
-		mkdir -p "$INPL_DIR/profiles"
+if [ ! -d "$INPL_DIR/profiles/" ]; then
+		mkdir -p "$INPL_DIR/profiles/"
+fi
+
+if [ ! -d "$HOME/.local/bin/" ]; then
+		mkdir -p "$HOME/.local/bin/"
+fi
+
+if [ ! -d "$HOME/.local/share/applications" ]; then
+		mkdir -p "$HOME/.local/share/applications/"
+fi
+
+if [ ! -d "$HOME/.config/systemd/" ] || [ ! -d "$HOME/.config/systemd/user/" ]; then
+		mkdir -p "$HOME/.config/systemd/user"
+fi
+
+if [ ! -d "$HOME/.config/inputplumber/" ] || [ ! -d "$HOME/.config/inputplumber/profiles/" ]; then
+		mkdir -p "$HOME/.config/inputplumber/profiles/"
 fi
 
 # download source
@@ -57,21 +73,6 @@ sudo cp "$INSTALL_DIR/etc/inputplumber/capability_maps.d/"* "/etc/inputplumber/c
 
 
 # no more root needed
-if [ ! -d "$HOME/.local/bin/" ]; then
-		mkdir -p "$HOME/.local/bin/"
-fi
-
-if [ ! -d "$HOME/.local/share/applications" ]; then
-		mkdir -p "$HOME/.local/share/applications/"
-fi
-
-if [ ! -d "$HOME/.config/systemd/" ] || [ ! -d "$HOME/.config/systemd/user/" ]; then
-		mkdir -p "$HOME/.config/systemd/user"
-fi
-
-if [ ! -d "$HOME/.config/inputplumber/" ] || [ ! -d "$HOME/.config/inputplumber/profiles/" ]; then
-		mkdir -p "$HOME/.config/inptplumber/profiles/"
-fi
 
 chmod +x "$INSTALL_DIR/local/bin/"*
 cp "$INSTALL_DIR/local/bin/"* "$HOME/.local/bin"
