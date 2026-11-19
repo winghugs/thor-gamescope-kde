@@ -33,7 +33,7 @@ fi
 cd "$CONFIG_DIR/tmp/install/"
 
 curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "install.zip"
-unzip -j "install.zip" -d .
+unzip "install.zip" -d .
 rm "install.zip"
 
 # everything that needs root
@@ -71,6 +71,7 @@ if [ ! -d "$HOME/.config/inputplumber/" ] || [ ! -d "$HOME/.config/inputplumber/
 		mkdir -p "$HOME/.config/inptplumber/profiles/"
 fi
 
+chmod +x "local/bin/"*
 cp "local/bin/"* "$HOME/.local/bin"
 cp "local/share/applications/"* "$HOME/.local/share/applications"
 
