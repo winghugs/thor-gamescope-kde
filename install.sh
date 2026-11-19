@@ -18,7 +18,6 @@ echo "You need to be in plasma-mobile for the autostart to work."
 read -n 1 -s -r -p "Press any key to continue, or CTRL+C to quit"
 echo
 
-CURRENT_DIR=$(pwd)
 CONFIG_DIR="$HOME/.config/gamescope-plasma-thor/"
 INPL_DIR="$HOME/inputplumber/"
 INSTALL_DIR="$CONFIG_DIR/tmp/install/thor-gamescope-kde-main"
@@ -36,7 +35,7 @@ fi
 
 # download source
 curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "$CONFIG_DIR/tmp/install/install.zip"
-unzip "install.zip" -d "$CONFIG_DIR/tmp/install/"
+unzip "$CONFIG_DIR/tmp/install/install.zip" -d "$CONFIG_DIR/tmp/install/"
 rm "$CONFIG_DIR/tmp/install/install.zip"
 
 # everything that needs root
@@ -80,7 +79,6 @@ cp "$INSTALL_DIR/config/inputplumber/profiles/"* "$HOME/.config/inputplumber/pro
 cp "$INSTALL_DIR/config/plasma-gamescope-thor/"* "$HOME/.config/plasma-gamescope-thor/" -r
 cp "$INSTALL_DI/config/systemd/user/"* "$HOME/.config/systemd/user/" -r
 
-cd "$CURRENT_DIR"
 rm -r "$CONFIG_DIR/tmp/install"
 echo
 echo
