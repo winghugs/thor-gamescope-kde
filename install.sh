@@ -36,8 +36,8 @@ fi
 
 # download source
 cd "$CONFIG_DIR/tmp/install/"
-curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "install.zip"
-unzip "install.zip" -d "$CONFIG_DIR/tmp/install/"
+curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "./install.zip"
+unzip "install.zip" -d .
 rm "$CONFIG_DIR/tmp/install/install.zip"
 
 # everything that needs root
