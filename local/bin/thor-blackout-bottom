@@ -1,2 +1,4 @@
 #!/bin/bash
-qml6 $HOME/.config/plasma-gamescope-thor/blackout.qml
+qml6 $HOME/.config/gamescope-plasma-thor/blackout.qml &
+sleep 1
+qdbus6 org.kde.KWin /KWin reconfigure
