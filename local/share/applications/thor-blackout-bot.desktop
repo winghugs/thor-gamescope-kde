@@ -3,8 +3,7 @@ Type=Application
 Version=1.0
 Name=blackout-bottom
 GenericName=Blackout Bottom
-Comment=Launches Steam on it's own wayland socket and provides window rules for a dual screen experience.
 Icon=dialog-information
-Exec=/usr/bin/qml6 $HOME/.config/plasma-gamescope-thor/blackout.qml
+Exec=$HOME/.local/bin/thor-blackout-bottom
 Categories=Games;
 
