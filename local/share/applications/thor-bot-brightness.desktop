@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=thor-brightness-bottom
+GenericName=Brightness Bottom
+Icon=dialog-positive
+Exec=$HOME/.local/bin/thor-brightness-adjust bot
+Categories=Games;
+

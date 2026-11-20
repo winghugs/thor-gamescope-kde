@@ -1,0 +1,23 @@
+#!/bin/bash
+TOP_MAX=3413
+TOP_MIN=1
+BOT_MAX=255
+BOT_MIN=1
+
+SCREEN_CHOICE=$1
+
+if [[ "$1" == "top" ]]; then {
+	BRIGHT=$(kdialog --slider "Top Screen" $TOP_MIN $TOP_MAX 1)
+	if [[ "$BRIGHT" -ne "0" ]]; then
+		echo $BRIGHT | sudo /usr/bin/tee /sys/class/backlight/ae96000.dsi.0/brightness
+	fi
+}
+fi
+if [[ "$1" == "bot" ]]; then {
+	BRIGHT=$(kdialog --slider "Bottom Screen" $BOT_MIN $BOT_MAX 1)
+	if [[ "$BRIGHT" -ne "0" ]]; then {
+		echo $BRIGHT | sudo /usr/bin/tee /sys/class/backlight/ae94000.dsi.0/brightness
+	}
+	fi
+}
+fi
