@@ -22,7 +22,7 @@ CURRENT_DIR=$(pwd)
 CONFIG_DIR="$HOME/.config/gamescope-plasma-thor/"
 INPL_DIR="$HOME/inputplumber/"
 INSTALL_DIR="$CONFIG_DIR/tmp/install/thor-gamescope-kde-main"
-SUDOERS_DIR="$INSTALL_DIR/etc/sudoers.d/"
+SUDOERS_DIR="$INSTALL_DIR/etc/sudoers.d"
 SUDOERS_SYSTEM="/etc/sudoers.d/"
 
 # folder init
@@ -97,7 +97,7 @@ copy_loop "$INSTALL_DIR/local/bin" "$HOME/.local/bin"
 copy_loop "$INSTALL_DIR/local/share/applications" "$HOME/.local/share/applications"
 copy_loop "$INSTALL_DIR/config/inputplumber/profiles/" "$HOME/.config/inputplumber/profiles/"
 copy_loop "$INSTALL_DIR/config/plasma-gamescope-thor/" "$HOME/.config/plasma-gamescope-thor/"
-copy_loop "$INSTALL_DI/config/systemd/user/" "$HOME/.config/systemd/user/"
+copy_loop "$INSTALL_DIR/config/systemd/user/" "$HOME/.config/systemd/user/"
 
 cd "$CURRENT_DIR"
 rm -r "$CONFIG_DIR/tmp/install"
