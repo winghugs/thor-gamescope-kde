@@ -48,27 +48,6 @@ newrule_end () {
 }
 
 newrule_start
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key Description "BottomScreenLock"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screen "1" 
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key types "1"
-newrule_end
-
-newrule_start
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key Description "GamescopeTopExplicit"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key above "true"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key aboverule "2"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreen "true"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreenrule "2"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layer "fullscreen"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layerrule "2"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key title "Steam Big Picture Mode"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key titlematch "1"
-kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key wmclass "gamescope"
-newrule_end
-
-newrule_start
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key Description "melonDS1"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key above "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key aboverule "2"
@@ -76,6 +55,8 @@ kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizehoriz "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizehorizrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizevert "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizevertrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layer "fullscreen"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layerrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key title "\\[w1\\]"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key titlematch "3"
@@ -91,6 +72,8 @@ kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizehoriz "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizehorizrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizevert "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key maximizevertrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layer "fullscreen"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layerrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screen "1"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key title "\\[w2\\]"
@@ -107,6 +90,8 @@ kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicy "none
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicyrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreen "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreenrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layer "fullscreen"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layerrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key title "Primary Window"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key titlematch "2"
@@ -123,6 +108,8 @@ kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicy "none
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicyrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreen "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreenrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layer "fullscreen"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layerrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screen "1"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key title "Secondary Window"
@@ -140,6 +127,8 @@ kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicy "serv
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicyrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreen "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreenrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layer "fullscreen"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layerrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key title "Cemu"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key titlematch "3"
@@ -153,6 +142,8 @@ kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key above "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key aboverule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicy "server"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key decorationpolicyrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layer "fullscreen"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key layerrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreen "true"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreenrule "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screen "1"
@@ -161,6 +152,23 @@ kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key title "GamePad View"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key titlematch "2"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key wmclass "info.cemu.Cemu"
 kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key wmclassmatch "1"
+newrule_end
+
+newrule_start
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key Description "GamescopeTopExplicit"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreen "true"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key fullscreenrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screen "0"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key wmclass "gamescope"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key wmclassmatch "1"
+newrule_end
+
+newrule_start
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key Description "BottomScreenLock"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screen "1" 
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key screenrule "2"
+kwriteconfig6 --file kwinrulesrc --group "$RULE_ID" --key types "1"
 newrule_end
 
 qdbus6 org.kde.KWin /KWin reconfigure
@@ -178,10 +186,15 @@ export PATH="$HOME/.local/bin:$PATH"
 GAMESCOPE_WAYLAND_DISPLAY=steam gamescope -W 1920 -w 1920 -H 1080 -h 1080 -r 120 -ef --force-grab-cursor --mangoapp -- steam -gamepadui -steamos3 -steampal -steamdeck &
 GAMESCOPE_PID=$!
 
+# give gamescope a chance to init
+sleep 10
+qdbus6 org.kde.KWin /KWin reconfigure
+
 wait $GAMESCOPE_PID
 
 # clean up
 rm "$CONFIG_DIR/.active"
 sudo /usr/bin/umount /usr/bin/steamos-session-select
 cp "$PREVDOC" "$RULESRC"
+qdbus6 org.kde.KWin /KWin reconfigure
 exit 0

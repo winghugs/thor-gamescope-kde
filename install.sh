@@ -18,6 +18,13 @@ echo "You need to be in plasma-mobile for the autostart to work."
 read -n 1 -s -r -p "Press any key to continue, or CTRL+C to quit"
 echo
 
+if [ "$1" == "--local" ]; then
+	LOCAL_INSTALL=true
+else
+	LOCAL_INSTALL=false
+fi
+		
+
 CURRENT_DIR=$(pwd)
 CONFIG_DIR="$HOME/.config/gamescope-plasma-thor/"
 INPL_DIR="$HOME/inputplumber/"
@@ -55,6 +62,9 @@ copy_loop () {
 	DEST=$2
 	LIST=$(ls $DIR)
 	for file in $LIST; do {
+		if [ -f "$DEST/$file" ]; then
+				rm "$DEST/$file"
+		fi
 		cp "$DIR/$file" "$DEST/$file" -r
 	}
 	done
@@ -69,11 +79,21 @@ plusx_loop () {
 	done
 }
 
-# download source
-cd "$CONFIG_DIR/tmp/install/"
-curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "./install.zip"
-unzip "install.zip" -d .
-rm "$CONFIG_DIR/tmp/install/install.zip"
+# download source if local
+if [ $LOCAL_INSTALL ]; then {
+	if [ ! -d "$INSTALL_DIR" ]; then
+			mkdir $INSTALL_DIR
+	fi
+	copy_loop "$CURRENT_DIR" "$INSTALL_DIR"
+}
+else {
+	cd "$CONFIG_DIR/tmp/install/"
+	curl -L "https://github.com/winghugs/thor-gamescope-kde/archive/refs/heads/master.zip" -o "./install.zip"
+	unzip "install.zip" -d .
+	rm "$CONFIG_DIR/tmp/install/install.zip"
+}
+fi
+
 
 # everything that needs root
 SUDOERS_FILES=$(ls $SUDOERS_DIR)
