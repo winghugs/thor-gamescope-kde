@@ -96,7 +96,7 @@ plusx_loop "$INSTALL_DIR/local/bin/"
 copy_loop "$INSTALL_DIR/local/bin" "$HOME/.local/bin"
 copy_loop "$INSTALL_DIR/local/share/applications" "$HOME/.local/share/applications"
 copy_loop "$INSTALL_DIR/config/inputplumber/profiles/" "$HOME/.config/inputplumber/profiles/"
-copy_loop "$INSTALL_DIR/config/plasma-gamescope-thor/" "$HOME/.config/plasma-gamescope-thor/"
+#copy_loop "$INSTALL_DIR/config/plasma-gamescope-thor/" "$HOME/.config/plasma-gamescope-thor/"
 copy_loop "$INSTALL_DIR/config/systemd/user/" "$HOME/.config/systemd/user/"
 
 cd "$CURRENT_DIR"
